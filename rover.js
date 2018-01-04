@@ -3,23 +3,9 @@ var rover = {
   direction: 'N'
 };
 
-rover.position[0] = "";
-rover.position[1] = "";
 
-var x = rover.position[0];
-var y = rover.position[1];
 
-var rightXposition;
-var rightYposition;
-
-if ( y >= -4 && y <= 5 && x >= -4 && x <= 5) {
-  rightYposition = "true";
-} else {
-  rightYposition = "false";
-}
-
-if (rightYposition) {
- function goForward(rover) {
+function goForward(rover) {
   switch(rover.direction) {
     case 'N':
       rover.position[0]++;
@@ -35,12 +21,8 @@ if (rightYposition) {
       break;
   }
 }
-} else {
-  console.log("Bammm, false direction!");
-}
 
-if (rightYposition) {
-function goBackward(rover) {
+var b = function goBackward(rover) {
   switch(rover.direction) {
     case 'N':
       rover.position[0]--;
@@ -55,10 +37,9 @@ function goBackward(rover) {
       rover.position[1]++;
       break;
   }
-}
-}
+};
 
-function goLeft(rover) {
+var l = function goLeft(rover) {
   switch(rover.direction) {
     case 'N':
       rover.direction = 'W';
@@ -73,7 +54,7 @@ function goLeft(rover) {
       rover.direction = 'S';
       break;
   }
-}
+};
 
 function goRight(rover) {
   switch(rover.direction) {
@@ -93,14 +74,30 @@ function goRight(rover) {
 }
 
 
+goForward(rover);
+goForward(rover);
+goForward(rover);
+goForward(rover);
+goForward(rover);
 
 
 
-goRight();
-goForward();
+
+var rightPosition;
+var x = rover.position[0];
+var y = rover.position[1];
+
+if ( y >= -4 && y <= 5 && x >= -4 && x <= 5) {
+
+console.log(rover);
+} else {
+  console.log("False direction!");
+}
 
 
 
+
+//var moveArray = ["b","f","l","r"];
+//console.log(moveArray);
 
   //console.log("New Rover Position: [" + rover.position[0] + ", " + rover.position[1] + "] +  [rover.direction]"")
-    console.log(rover);
